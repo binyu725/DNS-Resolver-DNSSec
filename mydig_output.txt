@@ -1,0 +1,45 @@
+(1) type "A":
+
+python mydig.py www.amazon.com A 
+QUESTION SECTION:
+www.amazon.com.   IN A
+
+ANSWER SECTION:
+www.amazon.com. 1800 IN CNAME tp.47cf2c8c9-frontier.amazon.com.
+tp.47cf2c8c9-frontier.amazon.com. 60 IN CNAME d3ag4hukkh62yn.cloudfront.net.
+d3ag4hukkh62yn.cloudfront.net. 60 IN A 13.35.89.134
+
+Query time: 746ms
+WHEN: Mon Sep 19 15:13:49 2022
+MSG SIZE rcvd: 88
+
+
+(2) type "MX":
+
+python mydig.py stonybrook.edu MX
+QUESTION SECTION:
+stonybrook.edu.   IN MX
+
+ANSWER SECTION:
+stonybrook.edu. 900 IN MX 1 sbmta2.cc.stonybrook.edu.
+stonybrook.edu. 900 IN MX 1 sbmta1.cc.stonybrook.edu.
+
+Query time: 77ms
+WHEN: Mon Sep 19 15:19:26 2022
+MSG SIZE rcvd: 88
+
+
+(3) type "NS":
+python mydig.py apple.com NS 
+QUESTION SECTION:
+apple.com.   IN NS
+
+ANSWER SECTION:
+apple.com. 43200 IN NS b.ns.apple.com.
+apple.com. 43200 IN NS a.ns.apple.com.
+apple.com. 43200 IN NS c.ns.apple.com.
+apple.com. 43200 IN NS d.ns.apple.com.
+
+Query time: 56ms
+WHEN: Mon Sep 19 15:22:20 2022
+MSG SIZE rcvd: 88

@@ -1,0 +1,6 @@
+	For DNSSEC, my program read the argument from the command. The argument should contain the domain name. 
+	I send the request of the zsk dnskey and signature and ksk dnskey to the server. To verify ksk dnskey, we have to get the ds record from the last level server. Then, we can use dns.dnssec.make_ds() to hash ksk dnskey and check if it matches to the ds record from the last level server. For ksk dnskey in the root server, we have to get the Root Key signing key and verify if the root ksk dnskey matches to the root key signing key.
+	After verifying the ksk, we can use ksk dnskey to verify the digital signature of the zsk. 
+	After the verifying the zsk signature, we can make query with flags dnssec=True of the domain name to the server. The server will return the response that contains the answer and the ds record for next level and the digital signature for the response. We can use verified zsk dnskey to verify the signature. 
+	Once we finished all the verifications, we can look at the response and extract the useful information to get the ip address of the domain or get the next level server to recursively get the ip address of the domain.
+	If the domain name does not support dnssec, the server will not return the ds record of that domain. Once we get the empty ds record, we end the function and print "DNSSEC not supported".
